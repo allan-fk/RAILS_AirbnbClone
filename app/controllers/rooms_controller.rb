@@ -43,7 +43,7 @@ before_action :require_same_user, only: [:edit, :update]
         end
       end
       @photos = @room.photos
-      redirect_to edit_room_path(@room), notice:"Votre logement a été ajouté avec succés"
+      redirect_to edit_room_path(@room), notice:"Votre logement a été édité avec succès"
     else
       render :edit
     end
