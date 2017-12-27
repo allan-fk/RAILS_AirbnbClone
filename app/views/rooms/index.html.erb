@@ -9,6 +9,7 @@
       <div class="panel-heading">Mes annonces</div>
         <div class="panel-body">
           <% @rooms.each do |room| %>
+          <%# parcour chaque annonces de la variable @rooms définie dans -> 'def index' du controller Rooms%>
             <div class="row">
               <div class="col-md-2">
                 <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %>
