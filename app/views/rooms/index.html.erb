@@ -13,6 +13,7 @@
             <div class="row">
               <div class="col-md-2">
                 <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %>
+                <%# affiche la premiere photo de l'annonce (room.photos[0] --> photo d'index 0 = 1re photo%>
               </div>
               <div class="col-md-7">
                 <h4><%= room.listing_name %></h4>
