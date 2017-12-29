@@ -56,6 +56,7 @@
         </div>
         <div class="col-md-4">
         <!-- Formulaire de rservation -->
+        <%= render 'reservations/form' %>
         </div>
       </div>
       <!-- Description -->
@@ -146,7 +147,7 @@
                   }
                 </script>
                 <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=[API_KEY]&callback=initMap">
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpW7uxhZ4F0pAwGT6aTB0Y7eRHD7Nioq4&callback=initMap">
                 </script>
             </div>
           </div>
@@ -156,14 +157,15 @@
       <!-- Logements à proximité -->
       <h3>A proximité...</h3>
       <div class="row">
-        <% for room in @room.nearbys(2).limit(3) %>
+        <% for room in @room.nearbys(2).limit(3)  %>
           <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading preview">
                 <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
               </div>
               <div class="panel-body">
-                <%= link_to room.listing_name, room %><br>
+                <%= link_to room.listing_name, room %>
+                <br>
                   ( <%= (room.distance*1.6).round(2) %> km)
               </div>
             </div>

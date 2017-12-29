@@ -10,13 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery
 //= require rails-ujs
+//= require jquery-ui
 //= require bootstrap-sprockets
 //= require toastr
+//= require_tree .
 
 toastr.options = {
   "positionClass":"toast-bottom-right"
