@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   resources :photos
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
-  get '/your_trips' => 'reservations#your_trips'
+  get :your_trips, to: 'reservations#your_trips', path: 'mes_voyages'
+  #Fix: mettre :your_trips à la place de '/your_trips'
 end
