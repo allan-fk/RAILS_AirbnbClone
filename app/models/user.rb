@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :reservations
   has_many :reviews
+  # un utilisateur peut poster plusieurs notes
 end

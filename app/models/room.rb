@@ -3,6 +3,7 @@ class Room < ApplicationRecord
   has_many :photos
   has_many :reservations
   has_many :reviews
+  # un logement peut avoir plusieurs notations
 
   validates :home_type, presence: true
   validates :accomodate, presence: true
@@ -19,4 +20,5 @@ class Room < ApplicationRecord
   def average_rating
     reviews.count == 0 ? 0 : reviews.average(:star).round(2)
   end
+  # si reviews.count = 0 alors retourne 0 sinon retourne la moyenne des notes
 end
