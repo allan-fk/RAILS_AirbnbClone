@@ -28,6 +28,20 @@ class RoomsController < ApplicationController
 
   def show
     @photos = @room.photos
+    @reviews = @room.reviews
+    # variable @reviews pour afficher les notations et commentaires de l'annonce
+    if current_user
+      @booked = Reservation.where('room_id = ? AND user_id = ?', @room.id, current_user.id).present?
+      # verifie la presence d'une reservation pour ce logement et cet user
+      @hasReview = @reviews.find_by(user_id: current_user.id)
+      # cherche parmi les reviews de l'annonce s'il y en a un possedant le même user_id
+=begin
+On doit dabord être sur que l’utilisateur a bien booké ce logement.
+Si la variable @booked existe alors l’utilisateur current_user a bien réservé ce logement (room_id).
+Ensuite, on liste tous les reviews du logement, afin de vérifier avec la variable hasReview si l’utilisateur n’a pas déjà noté le logement
+auquel cas il ne peut plus re-voter.
+=end
+    end
   end
 
   def edit
