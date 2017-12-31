@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
   get :your_trips, to: 'reservations#your_trips', path: 'mes_voyages'
-  #Fix: mettre :your_trips à la place de '/your_trips'
+  # Fix: mettre :your_trips a la place de '/your_trips'
+  get :your_reservations, to: 'reservations#your_reservations', path: 'mes_reservations'
 end
