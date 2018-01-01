@@ -1,77 +1,80 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <!-- Photo principale de l'annonce -->
-      <div class="row">
-        <div class="col-md-12">
-          <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
-        </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
       </div>
-      <br>
+    </div>
+    <br>
 
-      <!-- Informations principales -->
-      <div class="row">
-        <div class="col-md-8">
-          <div class="row">
-            <div class="col-md-3 text-center">
-              <%= image_tag avatar_url(@room.user), class:"img-circle avatar-large" %>
-                <br>
+    <!-- Informations principales -->
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3 text-center">
+            <%= image_tag avatar_url(@room.user), class:"img-circle avatar-large" %>
+            <br>
 
-                <br>
+            <br>
 
-              <%= @room.user.fullname %>
-            </div>
-            <div class="col-md-9">
-                <h4><%= @room.listing_name %></h4>
-                <%= @room.address %>
-              <div class="row text-center row-space-1">
-                <div class="col-sm-3">
-                  <i class="fa fa-home fa-2x"></i>
-                </div>
-                <div class="col-sm-3">
-                  <i class="fa fa-users fa-2x"></i>
-                </div>
-                <div class="col-sm-3">
-                  <i class="fa fa-bed fa-2x"></i>
-                </div>
-                <div class="col-sm-3">
-                  <i class="fa fa-bath fa-2x"></i>
-                </div>
+            <%= @room.user.fullname %>
+          </div>
+          <div class="col-md-9">
+            <h4><%= @room.listing_name %></h4>
+            <%= @room.address %>
+            <div class="row text-center row-space-1">
+              <div class="col-sm-3">
+                <i class="fa fa-home fa-2x"></i>
               </div>
-              <div class="row text-center">
-                <div class="col-sm-3">
-                  <%= @room.home_type %>
-                </div>
-                <div class="col-sm-3">
-                  <%= @room.accomodate %> <%= @room.accomodate > 1 ? "Voyageurs" : "Voyageur" %>
-                </div>
-                <div class="col-sm-3">
-                  <%= @room.bed_room %> <%= @room.bed_room > 1 ? "Lits" : "Lit" %>
-                </div>
-                <div class="col-sm-3">
-                  <%= @room.bath_room %> <%= @room.bath_room > 1 ? "Salles de bain" : "Salle de bain" %>
-                </div>
+              <div class="col-sm-3">
+                <i class="fa fa-users fa-2x"></i>
+              </div>
+              <div class="col-sm-3">
+                <i class="fa fa-bed fa-2x"></i>
+              </div>
+              <div class="col-sm-3">
+                <i class="fa fa-bath fa-2x"></i>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="col-sm-3">
+                <%= @room.home_type %>
+              </div>
+              <div class="col-sm-3">
+                <%= @room.accomodate %>
+                <%= @room.accomodate > 1 ? "Voyageurs" : "Voyageur" %>
+              </div>
+              <div class="col-sm-3">
+                <%= @room.bed_room %>
+                <%= @room.bed_room > 1 ? "Lits" : "Lit" %>
+              </div>
+              <div class="col-sm-3">
+                <%= @room.bath_room %>
+                <%= @room.bath_room > 1 ? "Salles de bain" : "Salle de bain" %>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
         <!-- Formulaire de rservation -->
         <%= render 'reservations/form' %>
-        </div>
       </div>
-      <!-- Description -->
-      <div class="row">
-        <div class="col-md-12">
-          <h2>A propos de ce logement</h2>
-            <p><%= @room.summary %></p>
-        </div>
+    </div>
+    <!-- Description -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>A propos de ce logement</h2>
+        <p><%= @room.summary %></p>
       </div>
-      <!-- Equipements -->
-      <div class="row">
-        <div class="col-md-2">
-          <p>Equipements</p>
-        </div>
-        <div class="col-md-10">
+    </div>
+    <!-- Equipements -->
+    <div class="row">
+      <div class="col-md-2">
+        <p>Equipements</p>
+      </div>
+      <div class="col-md-10">
         <div class="row">
           <div class="col-md-6">
             <ul class="equipments">
@@ -94,13 +97,13 @@
             <div class="col-md-10 col-md-offset-1">
               <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
-                  <% if @photos %>
-                    <% @photos.each do |photo| %>
-                      <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
-                      </ol>
-                    <% end %>
+                <% if @photos %>
+                  <% @photos.each do |photo| %>
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                    </ol>
                   <% end %>
+                <% end %>
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                   <% if @photos %>
@@ -123,54 +126,73 @@
               </div>
             </div>
           </div>
+          <!-- Reviews -->
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Commentaires
+                <%= @room.average_rating %>
+                <!-- note moyenne-->
+                (<%= @reviews.count %>)</h3>
+                <!-- nbr de reviews -->
+              <div class="container">
+                <div>
+                  <%= render 'reviews/form' if @booked && !@hasReview %>
+                  <!-- formulaire seulement si user a déjà reserve dates et s’il n’a pas déjà noter -->
+                </div>
+                <div>
+                  <%= render 'reviews/list' %>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Google maps -->
           <div class="row">
             <div class="col-md-12">
               <div id="map"></div>
-                <style>
-                  #map {
-                    height: 400px;
-                    width: 100%;
-                  }
-                </style>
-                <script>
-                  function initMap() {
-                    var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 15,
-                      center: uluru
-                    });
-                    var marker = new google.maps.Marker({
-                      position: uluru,
-                      map: map
-                    });
-                  }
-                </script>
-                <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpW7uxhZ4F0pAwGT6aTB0Y7eRHD7Nioq4&callback=initMap">
-                </script>
+              <style>
+                #map {
+                  height: 400px;
+                  width: 100%;
+                }
+              </style>
+              <script>
+                function initMap() {
+                  var uluru = {
+                    lat: <%= @room.latitude %>,
+                    lng: <%= @room.longitude %>
+                  };
+                  var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: uluru
+                  });
+                  var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+              </script>
+              <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpW7uxhZ4F0pAwGT6aTB0Y7eRHD7Nioq4&callback=initMap"></script>
             </div>
           </div>
         </div>
       </div>
-      </div>
-      <!-- Logements à proximité -->
-      <h3>A proximité...</h3>
-      <div class="row">
-        <% for room in @room.nearbys(2).limit(3)  %>
-          <div class="col-md-4">
-            <div class="panel panel-default">
-              <div class="panel-heading preview">
-                <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-              </div>
-              <div class="panel-body">
-                <%= link_to room.listing_name, room %>
-                <br>
-                  ( <%= (room.distance*1.6).round(2) %> km)
-              </div>
+    </div>
+    <!-- Logements à proximité -->
+    <h3>A proximité...</h3>
+    <div class="row">
+      <% for room in @room.nearbys(2).limit(3)  %>
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading preview">
+              <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+            </div>
+            <div class="panel-body">
+              <%= link_to room.listing_name, room %>
+              <br>
+              (
+              <%= (room.distance*1.6).round(2) %>
+              km)
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
