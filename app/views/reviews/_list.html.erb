@@ -1,5 +1,5 @@
 <% if @reviews.count == 0 %>
-<!-- vérifie si l’annonce a des commentaires-->
+  <!-- vérifie si l’annonce a des commentaires-->
   <div class="text-center">
     <h4>Aucun commentaire.</h4>
   </div>
@@ -14,7 +14,7 @@
       <div class="col-md-11">
         <div>
           <strong><%= r.user.fullname %>
-            <%= r.star %>
+            <div id="stars_<%= r.id %>"></div>
           </strong>
           <span class="pull-right">
             <%= link_to "Supprimer mon commentaire", [@room, r], method: :delete, data: {confirm: "Etes-vous sûr?"} if current_user && current_user == r.user %>
@@ -27,5 +27,9 @@
         <!-- Le commentaire -->
       </div>
     </div>
+    <script>
+      $('#stars_<%= r.id %>').raty({path: '/assets', readOnly: true, score: <%= r.star %>});
+      /* stars_<%= r.id %> affiche note de user avec étoiles */
+    </script>
   <% end %>
 <% end %>
