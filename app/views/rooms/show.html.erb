@@ -22,7 +22,10 @@
           </div>
           <div class="col-md-9">
             <h4><%= @room.listing_name %></h4>
-            <%= @room.address %>
+            <a href="#map", class="sidebar-link"><%= @room.address %></a>
+            <a href="#average_rating" ,="," class="sidebar-link">
+              <span id="average_rating_header"></span>
+              <%= @reviews.count %></a>
             <div class="row text-center row-space-1">
               <div class="col-sm-3">
                 <i class="fa fa-home fa-2x"></i>
@@ -129,11 +132,12 @@
           <!-- Reviews -->
           <div class="row">
             <div class="col-md-12">
-              <h3>Commentaires
+              <h3><%= pluralize(@reviews.count, 'commentaire') %>
+                <!-- pluralize = Mettre au pluriel le string 'commentaire' -->
                 <span id="average_rating"></span>
                 <!-- note moyenne-->
                 (<%= @reviews.count %>)</h3>
-                <!-- nbr de reviews -->
+              <!-- nbr de reviews -->
               <div class="container">
                 <div>
                   <%= render 'reviews/form' if @booked && !@hasReview %>
@@ -197,9 +201,7 @@
   </div>
 </div>
 <script>
-            $('#average_rating').raty({
-                path: '/assets',
-                readOnly: true,
-                score: <%= @room.average_rating %>
-            });
+  $('#average_rating').raty({path: '/assets', readOnly: true, score: <%= @room.average_rating %>});
+
+  $('#average_rating_header').raty({path: '/assets', readOnly: true, score: <%= @room.average_rating %>});
 </script>
