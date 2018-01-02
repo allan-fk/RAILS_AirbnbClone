@@ -232,7 +232,6 @@ input[type="checkbox"]:checked:before {
 .panel-heading.preview img {
   width: 100%;
 }
-
 // rooms#show
 .equipments li {
   margin-bottom: 10px;
@@ -242,7 +241,6 @@ input[type="checkbox"]:checked:before {
 .text-line-through {
   text-decoration: line-through;
 }
-
 // reservations#_form
 .reservation-table td {
   width: 100%;
@@ -260,4 +258,28 @@ input[type="checkbox"]:checked:before {
   font-size: 20px;
   padding: 10px;
   margin-bottom: 10px;
+}
+// pages#home
+.home-link a,
+p {
+  color: #82888a;
+  text-decoration: none;
+}
+
+.home-link:focus a,
+.home-link:hover a {
+  color: #82888a;
+  text-decoration: none;
+}
+
+.home-link a,
+p {
+  color: #82888a;
+  text-decoration: none;
+}
+
+.home-link:focus a,
+.home-link:hover a {
+  color: #82888a;
+  text-decoration: none;
 }

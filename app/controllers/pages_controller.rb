@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  def home; end
+  def home
+    @rooms = Room.order("RANDOM()").limit(3)
+    # Cherche dans la table Room 3 donnees aleatoire
+  end
 
   def search
     if params[:search].present? && params[:search].strip != ''
