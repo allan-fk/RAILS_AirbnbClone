@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :destroy]
   end
   resources :photos
+  get '/search' => 'pages#search'
   get '/preload' => 'reservations#preload'
   get '/preview' => 'reservations#preview'
   get :your_trips, to: 'reservations#your_trips', path: 'mes_voyages'
