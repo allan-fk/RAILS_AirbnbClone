@@ -2,6 +2,7 @@
   "name": "UdemyAirBnb",
   "private": true,
   "dependencies": {
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "sticky-kit": "^1.1.3"
   }
 }

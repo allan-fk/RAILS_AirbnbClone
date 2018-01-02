@@ -3,6 +3,7 @@
     <div id="widget">
       <div id="widget">
         <script>
+          /* affiche sur la carte les resultats les plus pertinents */
           function initMap() {
             <% if @arrRooms.length > 0 %>
             var uluru = {
@@ -14,6 +15,7 @@
               center: uluru
             });
             <% else %>
+            /* si 0 resultats affiche default-localisation */
             var uluru = {
               lat: 48.866667,
               lng: 2.333333
@@ -23,7 +25,7 @@
               center: uluru
             });
             <% end %>
-
+            /* Marqueur */
             <% @arrRooms.each do |room| %>
             var marker = new google.maps.Marker({
               position: {
@@ -31,12 +33,12 @@
                 lng: <%= room.longitude %>
               },
               map: map,
-              title: "<%= room.listing_name %>"
+              title: "<%= room.listing_name %>" // titre de l'annonce
             });
             <% end %>
           }
         </script>
-        <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=YOU_KEY&callback=initMap"></script>
+        <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpW7uxhZ4F0pAwGT6aTB0Y7eRHD7Nioq4&callback=initMap"></script>
       </div>
     </div>
   </div>
@@ -240,4 +242,11 @@ $(function () {
     }
   });
 })
+</script>
+
+<!-- jquery-sticky-sidebar -->
+<script>
+$(document).ready(function () {
+  $("#sidebar").stick_in_parent({offset_top: 20});
+});
 </script>

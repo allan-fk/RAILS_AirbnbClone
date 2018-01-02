@@ -41,6 +41,7 @@ body {
 .container {
   width: 80%;
 }
+// layouts#_navigation
 
 .navbar-default {
   background-color: #FFFFFF;
@@ -52,6 +53,22 @@ body {
   font-weight: 400;
 }
 
+.search {
+  position: relative;
+}
+
+.search input {
+  text-indent: 30px;
+}
+
+.search .fa-search {
+  position: absolute;
+  top: 12px;
+  left: 7px;
+  font-size: 15px;
+  opacity: 0.5;
+}
+// #
 .btn-primary.btn {
   border: 1px solid #ff5a5f;
   border-radius: 2px;
