@@ -233,6 +233,7 @@ input[type="checkbox"]:checked:before {
   width: 100%;
 }
 // rooms#show
+
 .equipments li {
   margin-bottom: 10px;
   list-style-type: none;
@@ -242,6 +243,7 @@ input[type="checkbox"]:checked:before {
   text-decoration: line-through;
 }
 // reservations#_form
+
 .reservation-table td {
   width: 100%;
   border: 1px solid #dce0e0;
@@ -260,17 +262,6 @@ input[type="checkbox"]:checked:before {
   margin-bottom: 10px;
 }
 // pages#home
-.home-link a,
-p {
-  color: #82888a;
-  text-decoration: none;
-}
-
-.home-link:focus a,
-.home-link:hover a {
-  color: #82888a;
-  text-decoration: none;
-}
 
 .home-link a,
 p {
@@ -282,4 +273,38 @@ p {
 .home-link:hover a {
   color: #82888a;
   text-decoration: none;
+}
+
+.home-link a,
+p {
+  color: #82888a;
+  text-decoration: none;
+}
+
+.home-link:focus a,
+.home-link:hover a {
+  color: #82888a;
+  text-decoration: none;
+}
+// pages#search
+
+#wrapper {
+  width: 960px;
+  margin: 0 auto;
+}
+
+#sidebar {
+  float: right;
+  width: 340px;
+}
+
+#sidebar #widget {
+  width: 340px;
+  height: 600px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#article {
+  width: 560px;
 }

@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     # Tableau de resultat
 
     if session[:airbnb_search] && session[:airbnb_search] != ''
-      @rooms_address = Room.where(active: true).near(session[:airbnb_search], 5, order: 'distance')
+      @rooms_address = Room.where(active: true).near(session[:airbnb_search], 2, order: 'distance')
     # affiche logement plus proche s'il y a une recherche et un lieu, affiche annonces actives par distances.
     # Si active: = false (pas d'adresse) pas d'affichage de lieu
     # !!! -> Nbr de logement a afficher >= nbr de logement creer sinon !Unsupported argument type: 0 (Fixnum)!
